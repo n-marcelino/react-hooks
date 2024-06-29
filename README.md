@@ -28,11 +28,11 @@ These instructions will get you a copy of the project up and running on your loc
 
 1. Clone the repository
     ```sh
-    git clone https://github.com/yourusername/task-manager.git
+    git clone https://github.com/n-marcelino/react-hooks
     ```
 2. Navigate to the project directory
     ```sh
-    cd task-manager
+    cd react-hooks
     ```
 3. Install the dependencies
     ```sh
