@@ -102,22 +102,22 @@ Documentation file providing information about the project, including setup inst
 
 ### Dark Mode
 
-![All Tasks - Dark Mode](screenshots/darkmode_all.png)
+![All Tasks - Dark Mode](src/screenshots/darkmode_all.png)
 *Task Manager displaying all tasks in dark mode.*
 
-![Completed Tasks - Dark Mode](screenshots/darkmode_completed.png)
+![Completed Tasks - Dark Mode](src/screenshots/darkmode_completed.png)
 *Task Manager showing completed tasks in dark mode.*
 
-![Incomplete Tasks - Dark Mode](screenshots/darkmode_incompleted.png)
+![Incomplete Tasks - Dark Mode](src/screenshots/darkmode_incompleted.png)
 *Task Manager displaying incomplete tasks in dark mode.*
 
 ### Light Mode
 
-![All Tasks - Light Mode](screenshots/lightmode_all.png)
+![All Tasks - Light Mode](src/screenshots/lightmode_all.png)
 *Task Manager displaying all tasks in light mode.*
 
-![Completed Tasks - Light Mode](screenshots/lightmode_completed.png)
+![Completed Tasks - Light Mode](src/screenshots/lightmode_completed.png)
 *Task Manager showing completed tasks in light mode.*
 
-![Incomplete Tasks - Light Mode](screenshots/lightmode_incompleted.png)
+![Incomplete Tasks - Light Mode](src/screenshots/lightmode_incompleted.png)
 *Task Manager displaying incomplete tasks in light mode.*
