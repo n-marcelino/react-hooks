@@ -1,70 +1,102 @@
-# Getting Started with Create React App
+# Task Manager Application
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A simple React task manager application that allows you to add, edit, delete, and filter tasks. It utilizes `useState`, `useEffect`, `useContext`, `useReducer`, `useMemo`, and `useCallback` to manage state and optimize performance.
 
-## Available Scripts
+## Features
 
-In the project directory, you can run:
+- Add tasks
+- Edit tasks
+- Delete tasks
+- Toggle task completion
+- Filter tasks (all, completed, incomplete)
+- Persist tasks in local storage
+- Global state management using `useContext`
+- Optimized task actions using `useReducer`
+- Memoized filtered tasks using `useMemo`
+- Memoized callback functions using `useCallback`
 
-### `npm start`
+## Getting Started
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### Prerequisites
 
-### `npm test`
+- Node.js
+- npm (Node Package Manager)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Installation
 
-### `npm run build`
+1. Clone the repository
+    ```sh
+    git clone https://github.com/yourusername/task-manager.git
+    ```
+2. Navigate to the project directory
+    ```sh
+    cd task-manager
+    ```
+3. Install the dependencies
+    ```sh
+    npm install
+    ```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Running the Application
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+To start the development server, run:
+```sh
+npm start
+```
+This will start the application on http://localhost:3000.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Project Structure
 
-### `npm run eject`
+src/
+│
+├── components/
+│   ├── Button.js
+│   ├── Content.js
+│   ├── Header.js
+│   ├── TaskManager.js
+│
+├── context/
+│   ├── TaskContext.js
+│   ├── ThemeContext.js
+│
+├── App.js
+├── index.js
+├── styles.css
+│
+└── README.md
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### File Descriptions
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+#### `components/`
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+- **Button.js**: Reusable component for buttons used within the application.
+- **Content.js**: Placeholder component or container for main content.
+- **Header.js**: Component responsible for rendering the application header.
+- **TaskManager.js**: Main component managing tasks, including CRUD operations and filtering.
 
-## Learn More
+#### `context/`
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- **TaskContext.js**: Context for managing global state related to tasks using `useReducer`.
+- **ThemeContext.js**: Placeholder context for managing application theme (if applicable).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+#### `App.js`
 
-### Code Splitting
+Main entry point of the application, wrapping components and providing context providers.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+#### `index.js`
 
-### Analyzing the Bundle Size
+Entry point for rendering the React application into the DOM.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+#### `styles.css`
 
-### Making a Progressive Web App
+Global stylesheet for basic styling of the application components.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+#### `README.md`
 
-### Advanced Configuration
+Documentation file providing information about the project, including setup instructions, features, and project structure.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+This structure outlines the basic organization of the React task manager application, separating components, context providers, and other necessary files for managing state, rendering content, and styling. Adjustments and additions can be made based on specific project requirements and additional features.
 
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
