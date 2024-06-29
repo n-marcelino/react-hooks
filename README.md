@@ -48,7 +48,7 @@ npm start
 This will start the application on http://localhost:3000.
 
 ## Project Structure
-
+```
 src/
 │
 ├── components/
@@ -66,7 +66,7 @@ src/
 ├── styles.css
 │
 └── README.md
-
+```
 
 ### File Descriptions
 
