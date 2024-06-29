@@ -7,7 +7,7 @@ const Header = () => {
     
     return (
         <header style={{ background: theme === 'light' ? '#fff' : '#333', color: theme === 'light' ? '#000' : '#fff' }}>
-            <h1>My App</h1>
+            <h1>To-Do List</h1>
             <button onClick={toggleTheme}>
                 Toggle Theme
             </button>

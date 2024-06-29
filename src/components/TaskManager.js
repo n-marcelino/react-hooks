@@ -1,46 +1,42 @@
-import React, { useState } from 'react';
-import Button from './Button'
+// src/TaskManager.js
+import React, { useState, useContext, useMemo, useRef } from 'react';
+import Button from './Button';
+import { TaskContext } from '../context/TaskContext';
 
 const TaskManager = () => {
-    const [tasks, setTasks] = useState([]);
     const [text, setText] = useState('');
-    const [strikeThroughCSS, setStrikeThroughCSS] = useState(false);
-    const [isEditing, setIsEditing] = useState(false);
-    const [currentTask, setCurrentTask] = useState(null);
+    const [editingTaskId, setEditingTaskId] = useState(null);
+    const [filter, setFilter] = useState('all');
+    const { tasks, addTask, toggleTaskCompletion, deleteTask, editTask } = useContext(TaskContext);
+    const inputRef = useRef(null);
 
-    let nextId = tasks.length ? Math.max(...tasks.map(task => task.id)) + 1 : 1; // Generate next ID based on existing tasks
-
-    const handleAddTask = () => {
-        if (text.trim() !== '') {
-            if (isEditing) {
-                setTasks(tasks.map(task =>
-                    task.id === currentTask.id ? { ...task, text: text } : task
-                ));
-                setIsEditing(false);
-                setCurrentTask(null);
-            } else {
-                setTasks([
-                    ...tasks,
-                    { id: nextId++, text: text, completed: false }
-                ]);
-            }
-            setText('');
+    const handleAddOrEditTask = () => {
+        if (editingTaskId) {
+            editTask(editingTaskId, text);
+            setEditingTaskId(null);
+        } else {
+            addTask(text);
         }
+        setText('');
+        inputRef.current.focus();
     };
 
     const handleInputChange = (event) => {
         setText(event.target.value);
     };
 
-    const handleEditTask = (task) => {
-        setIsEditing(true);
-        setCurrentTask(task);
+    const handleEditClick = (task) => {
         setText(task.text);
+        setEditingTaskId(task.id);
     };
 
-    const handleDeleteTask = (taskId) => {
-        setTasks(tasks.filter(task => task.id !== taskId));
-    };
+    const filteredTasks = useMemo(() => {
+        return tasks.filter(task => {
+            if (filter === 'all') return true;
+            if (filter === 'completed') return task.completed;
+            if (filter === 'incomplete') return !task.completed;
+        });
+    }, [tasks, filter]);
 
     return (
         <div>
@@ -50,23 +46,27 @@ const TaskManager = () => {
                 value={text}
                 onChange={handleInputChange}
                 placeholder="Enter new task"
+                ref={inputRef}
             />
-            <Button onClick={handleAddTask}>{isEditing ? 'Update Task' : 'Add Task'}</Button>
-            <ul style={{listStyleType:'none', paddingLeft:0}}>
-                {tasks.map(task => (
-                    <li key={task.id} style={{textDecoration: task.completed ? "line-through" : "none"}}>
+            <Button onClick={handleAddOrEditTask}>
+                {editingTaskId ? 'Edit Task' : 'Add Task'}
+            </Button>
+            <div>
+                <Button onClick={() => setFilter('all')}>All</Button>
+                <Button onClick={() => setFilter('completed')}>Completed</Button>
+                <Button onClick={() => setFilter('incomplete')}>Incomplete</Button>
+            </div>
+            <ul style={{ listStyleType: 'none', paddingLeft: 0 }}>
+                {filteredTasks.map(task => (
+                    <li key={task.id} style={{ textDecoration: task.completed ? "line-through" : "none" }}>
                         <input
                             type="checkbox"
                             checked={task.completed}
-                            onChange={() => {
-                                setTasks(tasks.map(t =>
-                                    t.id === task.id ? { ...t, completed: !t.completed } : t
-                                ));
-                            }}
+                            onChange={() => toggleTaskCompletion(task.id)}
                         />
                         {task.text}
-                        <Button onClick={() => handleEditTask(task)}>Edit</Button>
-                        <Button onClick={() => handleDeleteTask(task.id)}>Delete</Button>
+                        <button onClick={() => handleEditClick(task)}>Edit</button>
+                        <button onClick={() => deleteTask(task.id)}>Delete</button>
                     </li>
                 ))}
             </ul>
