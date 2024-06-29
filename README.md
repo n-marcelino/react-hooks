@@ -1,6 +1,27 @@
-# Task Manager Application
+# To-Do List
 
-A simple React task manager application that allows you to add, edit, delete, and filter tasks. It utilizes `useState`, `useEffect`, `useContext`, `useReducer`, `useMemo`, and `useCallback` to manage state and optimize performance.
+A simple React to-do list application that allows you to add, edit, delete, and filter tasks. It utilizes `useState`, `useEffect`, `useContext`, `useReducer`, `useMemo`, and `useCallback` to manage state and optimize performance.
+
+## Table of Contents
+
+- [Task Manager Application](#task-manager-application)
+  - [Features](#features)
+  - [Getting Started](#getting-started)
+    - [Prerequisites](#prerequisites)
+    - [Installation](#installation)
+    - [Running the Application](#running-the-application)
+  - [Project Structure](#project-structure)
+    - [File Descriptions](#file-descriptions)
+      - [`components/`](#components)
+      - [`context/`](#context)
+      - [`App.js`](#appjs)
+      - [`index.js`](#indexjs)
+      - [`styles.css`](#stylescss)
+      - [`README.md`](#readmemd)
+  - [Screenshots](#screenshots)
+    - [Dark Mode](#dark-mode)
+    - [Light Mode](#light-mode)
+
 
 ## Features
 
